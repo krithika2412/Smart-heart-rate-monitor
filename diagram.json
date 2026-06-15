@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "author": "Krithika.S",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -9.6, "left": -43.16, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -68.5, "left": -173, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -61.2,
+      "left": 109.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 79.2,
+      "left": 97.8,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 79.94,
+      "left": 211.43,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "v115.2", "h153.6" ] ],
+    [ "pot1:SIG", "esp:34", "green", [ "v28.8", "h143.6" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v-9.6", "h133.6" ] ],
+    [ "oled1:GND", "esp:GND.1", "black", [ "v-76.8", "h201.6" ] ],
+    [ "oled1:VCC", "esp:3V3", "red", [ "v-201.6", "h192.15" ] ],
+    [ "oled1:SCL", "esp:22", "green", [ "v-182.4", "h221.1" ] ],
+    [ "oled1:SDA", "esp:21", "green", [ "v-153.6", "h211.27" ] ],
+    [ "bz1:2", "esp:19", "green", [ "v28.8", "h-67.6" ] ],
+    [ "bz1:1", "esp:GND.3", "green", [ "v-57.6", "h-57.6" ] ],
+    [ "led1:A", "esp:18", "green", [ "v76.8", "h-48" ] ],
+    [ "led1:C", "esp:GND.3", "green", [ "v67.2", "h-47.6" ] ]
+  ],
+  "dependencies": {}
+}
